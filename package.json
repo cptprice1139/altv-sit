@@ -1,0 +1,24 @@
+{
+  "name": "altv-sit",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elsucco/altv-sit.git"
+  },
+  "author": "Marlon S.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elsucco/altv-sit/issues"
+  },
+  "homepage": "https://github.com/elsucco/altv-sit#readme",
+  "devDependencies": {
+    "@altv/types-client": "^1.8.5",
+    "@altv/types-natives": "^1.4.2",
+    "@altv/types-shared": "^1.0.5",
+    "@altv/types-webview": "^1.0.2"
+  }
+}
