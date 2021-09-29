@@ -17,4 +17,4 @@ To install this script, just download the latest release or download the reposit
 
 Press E near any bench, chair etc.
 
-# I hope you enjoy my little script
+# I hope you enjoy my small script
