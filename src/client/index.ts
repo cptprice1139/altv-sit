@@ -10,8 +10,8 @@ let currentType: string;
 alt.on('keydown', key => {
     if (key === 69) { // E
         if (sitting) {
-            Cancel();
             alt.emitServer('altv-sit:server:cancel', native.getEntityCoords(currentObj, false));
+            Cancel();
             return;
         }
 
@@ -21,7 +21,7 @@ alt.on('keydown', key => {
             if (object) {
                 currentObj = object;
                 currentType = type;
-                alt.emitServer('altv-sit:server:trySit', native.getEntityCoords(currentObj, false));
+                alt.emitServer('altv-sit:server:trySit', native.getEntityCoords(object, false));
             }
         }
     }
@@ -34,6 +34,7 @@ function Sit(type: string) {
 
     native.disableControlAction(1, 37, true);
 
+    native.placeObjectOnGroundProperly(currentObj);
     native.freezeEntityPosition(currentObj, true);
 
     let pos = native.getEntityCoords(currentObj, false);
@@ -41,7 +42,7 @@ function Sit(type: string) {
     Object.entries(data).forEach(
         ([key, value]) => {
             if (key === type) {
-                native.taskStartScenarioAtPosition(alt.Player.local, value.scenario, pos.x, pos.y, pos.z + (alt.Player.local.pos.z - pos.z) / 2, native.getEntityHeading(currentObj) + 180.0, 0, true, false);
+                native.taskStartScenarioAtPosition(alt.Player.local, value.scenario, pos.x, pos.y, pos.z - value.verticalOffset, native.getEntityHeading(currentObj) + 180.0, 0, true, false);
             }
         }
     )
